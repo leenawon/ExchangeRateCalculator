@@ -7,10 +7,10 @@ import { useNavigate } from 'react-router';
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  margin: 0 auto;
   width: 100vw;
   height: 50vh;
-  margin: 0 auto;
-  align-items: flex-start;
 `;
 
 const Title = styled.h1`
@@ -19,15 +19,15 @@ const Title = styled.h1`
 `;
 
 const SubTitle = styled.h2`
+  margin-bottom: 20px;
   font-weight: 600;
   font-size: 14px;
-  margin-bottom: 20px;
 `;
 
 const ContentText = styled.h5`
+  padding-right: 5px;
   font-weight: 500;
   font-size: 14px;
-  padding-right: 5px;
   color: blue;
 `;
 
@@ -36,11 +36,12 @@ const ReceptionCountry = styled.div`
 `;
 
 const SelectCountry = styled.select`
-  height: 23px;
   position: relative;
   margin-top: 10px;
   margin-left: 8px;
+  height: 23px;
 `;
+
 const InputFormWrapper = styled.form`
   display: flex;
   height: 50px;
@@ -48,17 +49,17 @@ const InputFormWrapper = styled.form`
 `;
 
 const InputMoney = styled.input.attrs({ type: 'number' })`
+  margin: 8px;
   max-width: 100px;
   height: 23px;
-  margin: 8px;
 `;
 
 const LinkBoxs = styled.div`
   display: flex;
-  width: 30vw;
   justify-content: space-between;
-  border: none;
   margin-top: 50px;
+  width: 30vw;
+  border: none;
 `;
 
 const Link = styled.button`
@@ -111,6 +112,8 @@ export default function First() {
     }
   };
 
+  useEffect(() => {}, [engCountry]);
+
   useEffect(() => {
     if (!response) return;
 
@@ -142,6 +145,7 @@ export default function First() {
       case 'select':
         setCountry(e.target.value);
         selectExchange();
+        setResult(0);
         break;
       case 'money':
         setMoney(e.target.value);
@@ -150,7 +154,6 @@ export default function First() {
         break;
     }
   };
-  console.log(result);
   return (
     <Wrapper>
       <Title>환율 계산</Title>
