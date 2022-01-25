@@ -1,5 +1,8 @@
 {
-  "extends": ["react-app", "plugin:prettier/recommended"],
+  "extends": [
+    "react-app",
+    "plugin:prettier/recommended"
+  ],
   "rules": {
     "no-var": "warn", // var 금지
     "no-multiple-empty-lines": "warn", // 여러 줄 공백 금지
