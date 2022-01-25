@@ -14,7 +14,25 @@
 !이미지
 
 ## 프로젝트 구조 설명
+
 `
+src
+ ┣ pages
+ ┃ ┣ first
+ ┃ ┃ ┣ First.js
+ ┃ ┃ ┣ Me.js
+ ┃ ┃ ┗ fucntion.js
+ ┃ ┗ second
+ ┃ ┃ ┗ Second.js
+ ┣ tests
+ ┃ ┣ first.test.js
+ ┃ ┣ second.spec.js
+ ┃ ┗ sum.test.js
+ ┣ Router.js
+ ┣ index.js
+ ┗ sum.js
+`
+
 ![image](https://user-images.githubusercontent.com/98315458/150923719-8576e071-274f-48a7-ac92-f571ab55468a.png)
  
  
