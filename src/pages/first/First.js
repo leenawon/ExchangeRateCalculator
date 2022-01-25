@@ -2,16 +2,20 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Util } from '../../utils';
 import { useFetch } from '../../hooks';
+import { useNavigate } from 'react-router';
 
 const Wrapper = styled.div`
-  color: black;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 50vh;
+  margin: 0 auto;
+  align-items: flex-start;
 `;
 
 const Title = styled.h1`
   font-weight: 700;
   font-size: 24px;
-  text-align: center;
-  margin: auto;
 `;
 
 const SubTitle = styled.h2`
@@ -49,8 +53,26 @@ const InputMoney = styled.input.attrs({ type: 'number' })`
   margin: 8px;
 `;
 
+const LinkBoxs = styled.div`
+  display: flex;
+  width: 30vw;
+  justify-content: space-between;
+  border: none;
+  margin-top: 50px;
+`;
+
+const Link = styled.button`
+  cursor: pointer;
+  color: none;
+  &:visited {
+    text-decoration: none;
+    color: black;
+  }
+`;
+
 export default function First() {
   const defParams = { url: 'live', params: null };
+  const navigate = useNavigate();
 
   const [exchange, setExchange] = useState(0);
   const [country, setCountry] = useState('');
@@ -58,6 +80,10 @@ export default function First() {
   const [money, setMoney] = useState(0);
   const [result, setResult] = useState(0);
   const { response } = useFetch(defParams);
+
+  const onLinkClick = (path) => {
+    navigate(path);
+  };
 
   const moneySubmit = (e) => {
     e.preventDefault();
@@ -84,6 +110,13 @@ export default function First() {
         break;
     }
   };
+
+  useEffect(() => {
+    if (!response) return;
+
+    setCountry('한국');
+    setEngCountry('KRW');
+  }, [response]);
 
   useEffect(() => {
     if (!response) return;
@@ -117,7 +150,7 @@ export default function First() {
         break;
     }
   };
-
+  console.log(result);
   return (
     <Wrapper>
       <Title>환율 계산</Title>
@@ -145,11 +178,13 @@ export default function First() {
           Submit
         </button>
       </InputFormWrapper>
-      {result <= 0 ? (
-        <></>
-      ) : (
+      {result < 0 || result === 0 ? null : (
         <ContentText>{`수취 금액은 ${result} ${engCountry} 입니다.`}</ContentText>
       )}
+      <LinkBoxs>
+        <Link onClick={() => onLinkClick('/')}>첫번째 페이지</Link>
+        <Link onClick={() => onLinkClick('/second')}>두번째 페이지</Link>
+      </LinkBoxs>
     </Wrapper>
   );
 }
