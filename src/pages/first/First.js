@@ -3,53 +3,53 @@ import styled from 'styled-components';
 import { Util } from '../../utils';
 import { useFetch } from '../../hooks';
 
+const Wrapper = styled.div`
+  color: black;
+`;
+
+const Title = styled.h1`
+  font-weight: 700;
+  font-size: 24px;
+  text-align: center;
+  margin: auto;
+`;
+
+const SubTitle = styled.h2`
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 20px;
+`;
+
+const ContentText = styled.h5`
+  font-weight: 500;
+  font-size: 14px;
+  padding-right: 5px;
+  color: blue;
+`;
+
+const ReceptionCountry = styled.div`
+  display: flex;
+`;
+
+const SelectCountry = styled.select`
+  height: 23px;
+  position: relative;
+  margin-top: 10px;
+  margin-left: 8px;
+`;
+const InputFormWrapper = styled.form`
+  display: flex;
+  height: 50px;
+  align-items: center;
+`;
+
+const InputMoney = styled.input.attrs({ type: 'number' })`
+  max-width: 100px;
+  height: 23px;
+  margin: 8px;
+`;
+
 export default function First() {
-  const Wrapper = styled.div`
-    color: black;
-  `;
-
-  const Title = styled.h1`
-    font-weight: 700;
-    font-size: 24px;
-    text-align: center;
-    margin: auto;
-  `;
-
-  const SubTitle = styled.h2`
-    font-weight: 600;
-    font-size: 14px;
-    margin-bottom: 20px;
-  `;
-
-  const ContentText = styled.h5`
-    font-weight: 500;
-    font-size: 14px;
-    padding-right: 5px;
-    color: blue;
-  `;
-
-  const ReceptionCountry = styled.div`
-    display: flex;
-  `;
-
-  const SelectCountry = styled.select`
-    height: 23px;
-    position: relative;
-    margin-top: 10px;
-    margin-left: 8px;
-  `;
-  const InputFormWrapper = styled.form`
-    display: flex;
-    height: 50px;
-    align-items: center;
-  `;
-
-  const InputMoney = styled.input.attrs({ type: 'number' })`
-    max-width: 100px;
-    height: 23px;
-    margin: 8px;
-  `;
-
   const defParams = { url: 'live', params: null };
 
   const [exchange, setExchange] = useState(0);
