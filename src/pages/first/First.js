@@ -138,7 +138,7 @@ export default function First() {
         setEngCountry('KRW');
         break;
     }
-  }, [country, response]);
+  }, [country]);
 
   const onChange = (e, type) => {
     switch (type) {
@@ -175,7 +175,7 @@ export default function First() {
           type="number"
           id="money"
           onChange={(e) => onChange(e, 'money')}
-        />
+        ></InputMoney>
         <ContentText>USD</ContentText>
         <button type="submit" onClick={moneySubmit}>
           Submit
