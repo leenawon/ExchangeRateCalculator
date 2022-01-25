@@ -93,6 +93,15 @@ export default function Second() {
             }
             setInput(e.target.value);
           }}
+          onKeyPress={(e) => {
+            if (e.code === 'Enter') {
+              const num = +e.target.value.split(',').join('');
+              if (num > 1000) {
+                e.target.value = '1,000';
+              }
+              setInput(e.target.value);
+            }
+          }}
         />
         <DropDownBox>
           <SelectEle
@@ -151,22 +160,22 @@ export default function Second() {
 const Box = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
-  box-sizing: border-box;
   align-items: center;
   justify-content: center;
+  border: 1px solid black;
+  box-sizing: border-box;
 `;
 
 const InputBox = styled.input`
+  margin: 1rem;
   width: 8rem;
   height: 2rem;
-  margin: 1rem;
 `;
 
 const DropDownBox = styled.div`
+  margin: 1rem;
   width: 8rem;
   height: 2rem;
-  margin: 1rem;
 `;
 
 const SelectEle = styled.div`
@@ -182,8 +191,10 @@ const SelectEle = styled.div`
 
 const DropDownEle = styled.li`
   position: relative;
+  z-index: 1000;
   box-sizing: border-box;
   display: flex;
+  display: ${(props) => (props.dropdown ? 'none' : '')};
   align-items: center;
   justify-content: center;
   width: 4rem;
@@ -191,8 +202,6 @@ const DropDownEle = styled.li`
   border: 1px solid black;
   border-top: none;
   background: white;
-  z-index: 1000;
-  display: ${(props) => (props.dropdown ? 'none' : '')};
 `;
 
 const TopBox = styled.div`
@@ -204,10 +213,10 @@ const BottomBox = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 1rem;
   width: 20rem;
   height: 20rem;
   border: 1px solid blue;
-  margin: 1rem;
 `;
 
 const TapWrapper = styled.div`
@@ -226,14 +235,14 @@ const Tab = styled.div`
 `;
 
 const Display = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
   width: 15rem;
   height: 15rem;
   border: 1px solid black;
   box-sizing: border-box;
   border-top: none;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
 `;
 
 const ResultWrapper = styled.div`
