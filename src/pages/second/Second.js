@@ -212,26 +212,12 @@ export default function Second() {
     <Box>
       <TopBox>
         <InputBox
+          maxLength="11"
           defaultValue={input}
           onChange={(e) => {
             const num = +e.target.value.split(',').join('');
             e.target.value = inputValidate(num.toLocaleString());
-          }}
-          onBlur={(e) => {
-            const num = +e.target.value.split(',').join('');
-            if (num > 1000) {
-              e.target.value = '1,000';
-            }
             setInput(e.target.value);
-          }}
-          onKeyPress={(e) => {
-            if (e.code === 'Enter') {
-              const num = +e.target.value.split(',').join('');
-              if (num > 1000) {
-                e.target.value = '1,000';
-              }
-              setInput(e.target.value);
-            }
           }}
         />
         <DropDownBox>
