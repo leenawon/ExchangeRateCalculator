@@ -44,8 +44,8 @@ const SelectCountry = styled.select`
 
 const InputFormWrapper = styled.form`
   display: flex;
-  height: 50px;
   align-items: center;
+  height: 50px;
 `;
 
 const InputMoney = styled.input.attrs({ type: 'number' })`
