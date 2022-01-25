@@ -29,7 +29,7 @@ src
  ┃ ┣ second.spec.js
  ┃ ┗ sum.test.js
  ┣ Router.js
- ┣ index.js
+ ┣ index.js 
  ┗ sum.js 
 `
 
