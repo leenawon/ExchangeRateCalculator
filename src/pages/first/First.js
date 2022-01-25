@@ -118,6 +118,57 @@ export default function First() {
     }
   };
 
+  const selectExchange = () => {
+    switch (country) {
+      case '일본':
+        setExchange(response.USDJPY);
+        setEngCountry('JPY');
+        break;
+      case '필리핀':
+        setExchange(response.USDPHP);
+        setEngCountry('PHP');
+        break;
+      default:
+        setExchange(response.USDKRW);
+        setEngCountry('KRW');
+        break;
+    }
+  }
+
+  useEffect(() => {
+    if (!response)
+      return;
+
+    switch (country) {
+      case '일본':
+        setExchange(response.USDJPY);
+        setEngCountry('JPY');
+        break;
+      case '필리핀':
+        setExchange(response.USDPHP);
+        setEngCountry('PHP');
+        break;
+      default:
+        setExchange(response.USDKRW);
+        setEngCountry('KRW');
+        break;
+    }
+  }, [country])
+
+  const onChange = (e, type) => {
+    switch (type) {
+      case 'select':
+        setCountry(e.target.value);
+        selectExchange();
+        break;
+      case 'money':
+        setMoney(e.target.value);
+        break;
+      default:
+        break;
+    }
+  }
+
   return (
     <Wrapper>
       <Title>환율 계산</Title>
