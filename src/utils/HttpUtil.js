@@ -4,26 +4,28 @@ class HttpUtil {
   API_KEY = [
     process.env.REACT_APP_CURRENCY_KEY,
     process.env.REACT_APP_CURRENCY_KEY2,
-    process.env.REACT_APP_CURRENCY_KEY3
+    process.env.REACT_APP_CURRENCY_KEY3,
   ];
   CURRENCY_URL = 'http://api.currencylayer.com/';
 
-  requestCurrencyApi = async args => {
+  requestCurrencyApi = async (args) => {
     const getApi = (url, params) => {
       let body = {
         url: this.CURRENCY_URL + url,
-        method: 'GET'
-      }
+        method: 'GET',
+      };
 
       let data = {
         params: {
           access_key: this.API_KEY[0],
-          ...params
-        }
-      }
+          ...params,
+        },
+      };
 
-      return axios({...body, ...data}).then(res => res).catch(err => err.response);
-    }
+      return axios({ ...body, ...data })
+        .then((res) => res)
+        .catch((err) => err.response);
+    };
 
     const response = await getApi(args.url, args.params);
 
@@ -37,7 +39,7 @@ class HttpUtil {
     }
 
     return { data: response.data, msg };
-  }
+  };
 }
 
 export default new HttpUtil();
