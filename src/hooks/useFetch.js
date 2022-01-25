@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { HttpUtil } from '../utils';
 
 export default function useFetch(params) {
-  const [requestParams, setRequestParams] = useState(params);
+  const [requestParams] = useState(params);
   const [isFetching, setIsFetching] = useState(true);
   const [response, setResponse] = useState(null);
 

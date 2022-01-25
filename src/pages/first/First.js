@@ -44,8 +44,8 @@ const SelectCountry = styled.select`
 
 const InputFormWrapper = styled.form`
   display: flex;
-  height: 50px;
   align-items: center;
+  height: 50px;
 `;
 
 const InputMoney = styled.input.attrs({ type: 'number' })`
@@ -138,7 +138,7 @@ export default function First() {
         setEngCountry('KRW');
         break;
     }
-  }, [country]);
+  }, [country, response]);
 
   const onChange = (e, type) => {
     switch (type) {
@@ -175,7 +175,7 @@ export default function First() {
           type="number"
           id="money"
           onChange={(e) => onChange(e, 'money')}
-        ></InputMoney>
+        />
         <ContentText>USD</ContentText>
         <button type="submit" onClick={moneySubmit}>
           Submit
