@@ -1,6 +1,12 @@
 # 배포 주소
 <a href="http://wanted-14-01.s3-website.ap-northeast-2.amazonaws.com/">환율 계산기 사이트</a>
 
+# 프로젝트 시작방법
+```
+npm install
+npm start
+```
+
 # 프로젝트 구조 설명
 
 ```
@@ -26,12 +32,6 @@ src
  ┣ Router.js  
  ┗ index.js  
  ```
-
-# 프로젝트 시작방법
-```
-npm install
-npm start
-```
 
 # 과제 구현 목록
 
@@ -65,7 +65,7 @@ npm start
 + 첫번째 환율 계산기 테스트 코드
 
 ```javascript
-import { moneySubmit } from '../pages/first/fucntion';
+import { moneySubmit } from '../pages/first/function';
 
 it('1000을 입력하였을 경우', () => {
   expect(moneySubmit(1000)).toBe('1,000,000.00');
@@ -95,15 +95,13 @@ it('1579을 입력하였을 경우', () => {
 
 ### 기능
 ```
-input 창에 숫자만 입력 가능. 1000 이상의 숫자 입력 시 자동으로 “1,000” 와 같이 천 단위로 소수점 표시
+1000 이상의 숫자 입력 시 자동으로 “1,000” 와 같이 천 단위로 소수점 표시
 
-상단 드롭 다운 탭 클릭 시 display : none 속성을 state 값으로 제어하여 Dropdown 구현. USD, CAD, KRW, HKD, JPY, CNY 선택 가능
+상단 드롭 다운 탭 클릭 시 display : none 속성을 state 값으로 제어하여 Dropdown 구현
 
 상단 드롭 다운에서 선택한 환율은 하단 탭에서 제거되고 그 자리에 기존의 환율이 배치되도록 구현
 
 사용자의 수치 입력 혹은 상단 드롭다운 메뉴를 이용하여 통화 변경 시 변경될 환율과 기준일 정보가 동기화 되도록 구현
-
-입력 길이 9자 제한
 ```	
  
  <div align="center"}>
@@ -114,7 +112,7 @@ input 창에 숫자만 입력 가능. 1000 이상의 숫자 입력 시 자동으
 + 두번째 환율 계산기 테스트 코드
 
 ```javascript
-import { checkDecimal } from '../pages/first/fucntion';
+import { checkDecimal } from '../pages/first/function';
 
 it('1000을 입력하였을 경우', () => {
   expect(checkDecimal('1000')).toBe('1000.00');
