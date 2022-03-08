@@ -17,9 +17,10 @@ src
  ┣ pages  
  ┃ ┣ first  
  ┃ ┃ ┣ First.js  
- ┃ ┃ ┗ fucntion.js  
+ ┃ ┃ ┗ function.js  
  ┃ ┗ second  
- ┃ ┃ ┗ Second.js  
+ ┃ ┃ ┣ Second.js  
+ ┃ ┃ ┗ function.js 
  ┣ styles  
  ┃ ┗ GlobalStyle.js  
  ┣ tests  
@@ -112,7 +113,7 @@ it('1579을 입력하였을 경우', () => {
 + 두번째 환율 계산기 테스트 코드
 
 ```javascript
-import { checkDecimal } from '../pages/first/function';
+import { checkDecimal } from '../pages/second/function';
 
 it('1000을 입력하였을 경우', () => {
   expect(checkDecimal('1000')).toBe('1000.00');
