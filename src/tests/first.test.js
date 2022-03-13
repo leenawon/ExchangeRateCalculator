@@ -1,4 +1,4 @@
-import { moneySubmit } from '../pages/first/fucntion';
+import { moneySubmit } from '../pages/first/function';
 
 it('1000을 입력하였을 경우', () => {
   expect(moneySubmit(1000)).toBe('1,000,000.00');
