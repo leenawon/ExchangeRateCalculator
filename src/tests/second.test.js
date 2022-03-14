@@ -1,4 +1,4 @@
-import { checkDecimal } from '../pages/first/fucntion';
+import { checkDecimal } from '../pages/second/function';
 
 it('1000을 입력하였을 경우', () => {
   expect(checkDecimal('1000')).toBe('1000.00');
