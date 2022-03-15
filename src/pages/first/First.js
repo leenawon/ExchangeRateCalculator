@@ -112,34 +112,6 @@ export default function First() {
     }
   };
 
-  useEffect(() => {}, [engCountry]);
-
-  useEffect(() => {
-    if (!response) return;
-
-    setCountry('한국');
-    setEngCountry('KRW');
-  }, [response]);
-
-  useEffect(() => {
-    if (!response) return;
-
-    switch (country) {
-      case '일본':
-        setExchange(response.USDJPY);
-        setEngCountry('JPY');
-        break;
-      case '필리핀':
-        setExchange(response.USDPHP);
-        setEngCountry('PHP');
-        break;
-      default:
-        setExchange(response.USDKRW);
-        setEngCountry('KRW');
-        break;
-    }
-  }, [country]);
-
   const onChange = (e, type) => {
     switch (type) {
       case 'select':
@@ -154,6 +126,20 @@ export default function First() {
         break;
     }
   };
+
+  useEffect(() => {
+    if (!response) return;
+
+    setCountry('한국');
+    setEngCountry('KRW');
+  }, [response]);
+
+  useEffect(() => {
+    if (!response) return;
+
+    selectExchange();
+  }, [country]);
+
   return (
     <Wrapper>
       <Title>환율 계산</Title>
@@ -175,7 +161,7 @@ export default function First() {
           type="number"
           id="money"
           onChange={(e) => onChange(e, 'money')}
-        ></InputMoney>
+        />
         <ContentText>USD</ContentText>
         <button type="submit" onClick={moneySubmit}>
           Submit
