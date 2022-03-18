@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
 import { SecondStyle } from '../../styles/SecondStyle';
+import { checkDecimal } from './function';
 
 export const {
   Box,
@@ -31,6 +32,7 @@ export default function Second() {
   const [exchangeRate, setExchangeRate] = useState({});
   const [date, setDate] = useState('');
   const [dropdown, setDropDown] = useState(true);
+  const navigate = useNavigate();
 
   const ACCESS_KEY = process.env.REACT_APP_CURRENCY_KEY;
   const END_POINT = process.env.REACT_APP_END_POINT;
@@ -58,7 +60,6 @@ export default function Second() {
       });
   };
 
-  const navigate = useNavigate();
   const onLinkClick = (path) => {
     navigate(path);
   };
@@ -87,19 +88,6 @@ export default function Second() {
 
   const offDropDown = () => {
     setDropDown(true);
-  };
-
-  const checkDecimal = (str) => {
-    if (str.includes('.')) {
-      const splited = str.split('.');
-      if (splited[1].length < 2) {
-        return str + '0';
-      } else {
-        return str;
-      }
-    } else {
-      return str + '.00';
-    }
   };
 
   const inputValidate = (inputData) => {
